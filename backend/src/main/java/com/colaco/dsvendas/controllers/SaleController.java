@@ -1,9 +1,11 @@
 package com.colaco.dsvendas.controllers;
 
+import com.colaco.dsvendas.controllers.docs.SaleDOC;
 import com.colaco.dsvendas.dto.SaleDTO;
 import com.colaco.dsvendas.dto.SaleSuccessDTO;
 import com.colaco.dsvendas.dto.SaleSumDTO;
 import com.colaco.dsvendas.services.SaleService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,7 +18,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/sales")
-public class SaleController {
+@Api(tags = { "Sales"})
+public class SaleController implements SaleDOC {
 
     @Autowired
     private SaleService service;
