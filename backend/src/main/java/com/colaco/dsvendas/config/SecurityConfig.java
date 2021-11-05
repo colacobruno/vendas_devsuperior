@@ -1,4 +1,4 @@
-package Config;
+package com.colaco.dsvendas.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
