@@ -11,11 +11,11 @@ import java.util.List;
 public interface SaleRepository extends JpaRepository<Sale, Long> {
 
     @Query("SELECT new com.colaco.dsvendas.dto.SaleSumDTO(obj.seller, SUM(obj.amount))" +
-            " FROM Sale obj GROUP BY obj.seller")
+            " FROM Sale obj GROUP BY obj.seller ORDER BY obj.seller.id ASC")
     List<SaleSumDTO> amountGroupedBySeller();
 
 
     @Query("SELECT new com.colaco.dsvendas.dto.SaleSuccessDTO(obj.seller, SUM(obj.visited), SUM (obj.deals))" +
-            " FROM Sale obj GROUP BY obj.seller")
+            " FROM Sale obj GROUP BY obj.seller ORDER BY obj.seller.id ASC")
     List<SaleSuccessDTO> sucessGroupedBySeller();
 }
